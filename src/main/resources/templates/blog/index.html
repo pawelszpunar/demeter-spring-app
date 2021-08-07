@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- head.html:START-->
+<div th:replace="blog/fragments/head.html :: template"></div>
+<!-- head.html:END-->
+
+<body>
+
+<div class="container">
+
+    <!-- header.html:START-->
+    <div th:replace="blog/fragments/header.html :: template"></div>
+    <!-- header.html:END -->
+
+    <!-- menu.html:START-->
+    <div th:replace="blog/fragments/menu.html :: template(items=${menuItems})"></div>
+    <!--    <div th:replace="blog/fragments/menu.html :: template(items=${menuSubItems})"></div>-->
+    <!-- menu.html:END-->
+
+    <!-- banner.html:START-->
+    <div th:replace="blog/fragments/banner.html :: template"></div>
+    <!-- banner.html:END-->
+
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <!-- post-widget.html:START-->
+            <!--            <div th:replace="blog/fragments/post-widget.html :: template"></div>-->
+            <!-- post-widget.html:END-->
+        </div>
+        <div class="col-md-6">
+            <!-- post-widget.html:START-->
+            <!--            <div th:replace="blog/fragments/post-widget.html :: template"></div>-->
+            <!-- post-widget.html:END-->
+        </div>
+    </div>
+</div>
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            <!-- post.html:START -->
+            <section th:each="post : ${posts}">
+                <div th:replace="blog/fragments/post.html :: template(post=${post})"></div>
+            </section>
+            <!-- post.html:END -->
+        </div>
+
+        <aside class="col-md-4 blog-sidebar">
+
+            <!-- about.html:START -->
+            <div th:replace="blog/fragments/about.html :: template"></div>
+            <!-- about.html:START -->
+
+            <!-- archives.html:START -->
+            <div th:replace="blog/fragments/archives.html :: template"></div>
+            <!-- archives.html:END -->
+
+            <!-- elsewhere.html:START -->
+            <div th:replace="blog/fragments/elsewhere.html :: template"></div>
+            <!-- elsewhere.html:END -->
+        </aside>
+    </div>
+</main>
+
+<!-- footer.html:START -->
+<div th:replace="blog/fragments/footer.html :: template"></div>
+<!-- footer.html:START -->
+
+</body>
+
+</html>
