@@ -17,6 +17,8 @@
 
     <p th:text="${post.content}"></p>
 
+    <a th:href="@{/blog/{id}(id=${post.id})}">view</a>
+
 </div>
 
 </body>
